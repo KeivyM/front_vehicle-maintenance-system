@@ -1,43 +1,44 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
-import { ComponentToPrint } from "./ComponentToPrint";
+import { ComponentToPrint } from "../components/ComponentToPrint";
+import { FormCreateRequest } from "../components/FormCreateRequest";
 
 export const SolcitudMantenimiento = () => {
   const componentRef = useRef();
+  const naviagate = useNavigate();
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
-  // const componentRef = useRef();
-  // console.log(componentRef);
+
+  const navegar = () => {
+    naviagate("/reporte_mantenimiento_vehiculo");
+  };
   return (
     <div
       style={{
         maxWidth: "1200px",
-        // alignItems: "center",
-        // justifySelf: "center",
-        // justifyItems: "center",
         margin: "0 auto",
         border: "1px solid black",
       }}
     >
-      <div>SolcitudMantenimiento</div>
+      <h2>SOLICITUD DE MANTENIMIENTO</h2>
       {/* <button onClick={() => window.print()}>IMPRIMIR SOLICITUD</button> */}
 
-      <div
-      // style={{
-      //   margin: "0 auto",
-      // }}
-      >
-        {/* <ReactToPrint
+      {/* <ReactToPrint
           trigger={() => <button>IMPRIMIR SOLICITUD</button>}
           content={() => componentRef.current}
         />
         <ComponentToPrint ref={componentRef} /> */}
-        <button onClick={handlePrint}>IMPRIMIR SOLICITUD</button>
-        <div style={{ display: "none" }}>
-          <ComponentToPrint ref={componentRef} />
-        </div>
+      <button>AGREGAR NUEVA SOLICITUD</button>
+      <button onClick={handlePrint}>IMPRIMIR SOLICITUD</button>
+      <button>gUARDAR</button>
+      <button onClick={navegar}>REPORTE DE MANTENIMIENTO POR VEHICULO</button>
+      <div style={{ display: "none" }}>
+        <ComponentToPrint ref={componentRef} />
       </div>
+      <FormCreateRequest />
     </div>
   );
 };
