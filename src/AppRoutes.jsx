@@ -1,12 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { ReportreMantenimiento } from "./pages/ReportreMantenimiento";
-// import { NavBar } from "../components/NavBar";
+import { BarraNavegacion } from "./components/BarraNavegacion";
+import { ReporteMantenimiento } from "./pages/ReporteMantenimiento";
 
 import { SolcitudMantenimiento } from "./pages/SolcitudMantenimiento";
 
 export const AppRoutes = () => {
   return (
     <>
+      <BarraNavegacion />
       <Routes>
         <Route
           path="/"
@@ -17,22 +18,13 @@ export const AppRoutes = () => {
           element={<SolcitudMantenimiento />}
         />
         <Route
-          path="/reporte_mantenimiento_vehiculo"
-          element={<ReportreMantenimiento />}
+          path="/reporte_mantenimiento_vehiculo/:id"
+          element={<ReporteMantenimiento />}
         />
-
-        {/* <Route path="/solicitud_mantenimiento" element={<ProfilePage />} /> */}
-        {/* <Route path="/profile/edit" element={<ProfileEditPage />} />
-            <Route path="/post" element={<PostPage type="new" />} />
-            <Route path="/post/:id" element={<PostPage type="update" />} /> */}
-        {/* <Route path="/posts" element={<PostsPage />} />
-            <Route path="/posts/:id" element={<PostsDetailsPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
-            <Route path="/login" element={<Navigate to="/" />} />
-            <Route path="/register" element={<Navigate to="/" />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/*" element={<Navigate to="/login" />} /> */}
+        <Route
+          path="/*"
+          element={<Navigate to={`/solicitud_mantenimiento`} />}
+        />
       </Routes>
     </>
   );

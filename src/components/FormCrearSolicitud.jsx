@@ -1,6 +1,6 @@
 import React from "react";
 
-export const FormCreateRequest = () => {
+export const FormCrearSolicitud = () => {
   return (
     <div>
       <form>
@@ -13,7 +13,12 @@ export const FormCreateRequest = () => {
         >
           Nº DE SOLICITUD:
         </h5>
-        <input type="number" />
+        <select name="df">
+          <option value="df">Vake</option>
+          <option value="ddf">Vdake</option>
+          <option value="dadf">Vakse</option>
+          <option value="ddaf">Vdake</option>
+        </select>
 
         <h5
           style={{
