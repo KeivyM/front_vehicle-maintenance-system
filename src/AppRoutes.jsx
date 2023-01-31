@@ -7,7 +7,7 @@ import { SolcitudMantenimiento } from "./pages/SolcitudMantenimiento";
 export const AppRoutes = () => {
   return (
     <>
-      <BarraNavegacion />
+      {/* <BarraNavegacion /> */}
       <Routes>
         <Route
           path="/"
